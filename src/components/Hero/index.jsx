@@ -4,6 +4,7 @@ import { transition, parentVariants } from "@/animation/transition";
 import { motion } from "framer-motion";
 import useDB from "@/hooks/useDB";
 import TextMask from "../TextMask";
+import { useLocation } from "react-router-dom";
 
 /**
  * Animasi gambar
@@ -62,12 +63,28 @@ const dividerVariants = {
 };
 
 /**
+ * Fungsi untuk mengambil parameter dari URL
+ */
+const useQueryParams = () => {
+  return new URLSearchParams(useLocation().search);
+};
+
+/**
  * Hero element
  *
  * @returns React.ReactElement
  */
 const Hero = () => {
   const { hero, wedding } = useDB((db) => db);
+  const searchParams = useQueryParams();
+
+  // Ambil semua parameter "nama" dari URL dan gabungkan
+  let namaUndangan = searchParams.getAll("nama").join(" & ");
+
+  // Jika hanya ada satu nama atau tidak ada sama sekali, gunakan default
+  if (!namaUndangan || namaUndangan.trim() === "") {
+    namaUndangan = "Tamu Undangan";
+  }
 
   const mempelaiPria = wedding.mempelai.pria.namaDepan;
   const mempelaiWanita = wedding.mempelai.wanita.namaPanggilan;
@@ -110,13 +127,45 @@ const Hero = () => {
             height: "100vh",
             width: "100%",
             display: "flex",
+            flexDirection: "column",
             alignItems: "center",
+            justifyContent: "center",
             backgroundImage: ({ palette }) => {
               return `linear-gradient(to bottom, transparent, ${palette.background.default})`;
             },
           }}
         >
           <Container>
+            <Typography
+              variant="h4"
+              sx={{
+                textAlign: "center",
+                fontSize: {
+                  md: 35,
+                  xs: 25,
+                },
+                textShadow: "2px 2px rgba(60, 42, 33, 0.6)",
+                marginBottom: "10px",
+              }}
+            >
+              {`Kepada Bapak/Ibu/Saudara/i ${namaUndangan}`}
+            </Typography>
+
+            <Typography
+              variant="h5"
+              sx={{
+                textAlign: "center",
+                fontSize: {
+                  md: 30,
+                  xs: 20,
+                },
+                textShadow: "2px 2px rgba(60, 42, 33, 0.6)",
+                marginBottom: "20px",
+              }}
+            >
+              Kami Mengundang Anda Untuk Hadir Di Acara Pernikahan Kami.
+            </Typography>
+
             <Typography
               variant="h2"
               sx={{
