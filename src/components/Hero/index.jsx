@@ -10,56 +10,27 @@ import { useLocation } from "react-router-dom";
  * Animasi gambar
  */
 const imageVariants = {
-  hidden: {
-    scale: 2,
-    opacity: 0,
-  },
-  show: {
-    scale: 1,
-    opacity: 1,
-    transition,
-  },
-  exit: {
-    opacity: 0,
-  },
+  hidden: { scale: 2, opacity: 0 },
+  show: { scale: 1, opacity: 1, transition },
+  exit: { opacity: 0 },
 };
 
 /**
- * Text variant
+ * Animasi teks
  */
 const textVariants = {
-  hidden: {
-    opacity: 0,
-    y: "80%",
-    skewY: 10,
-  },
-  show: {
-    opacity: 1,
-    y: 0,
-    skewY: 0,
-    transition,
-  },
-  exit: {
-    opacity: 0,
-  },
+  hidden: { opacity: 0, y: "80%", skewY: 10 },
+  show: { opacity: 1, y: 0, skewY: 0, transition },
+  exit: { opacity: 0 },
 };
 
 /**
- * Text variant
+ * Animasi garis pembatas
  */
 const dividerVariants = {
-  hidden: {
-    scaleX: 0,
-    originX: 0,
-  },
-  show: {
-    scaleX: 1,
-    originX: 0,
-    transition,
-  },
-  exit: {
-    opacity: 0,
-  },
+  hidden: { scaleX: 0, originX: 0 },
+  show: { scaleX: 1, originX: 0, transition },
+  exit: { opacity: 0 },
 };
 
 /**
@@ -70,18 +41,13 @@ const useQueryParams = () => {
 };
 
 /**
- * Hero element
- *
- * @returns React.ReactElement
+ * Komponen Hero
  */
 const Hero = () => {
   const { hero, wedding } = useDB((db) => db);
   const searchParams = useQueryParams();
 
-  // Ambil semua parameter "nama" dari URL dan gabungkan
   let namaUndangan = searchParams.getAll("nama").join(" & ");
-
-  // Jika hanya ada satu nama atau tidak ada sama sekali, gunakan default
   if (!namaUndangan || namaUndangan.trim() === "") {
     namaUndangan = "Tamu Undangan";
   }
@@ -137,14 +103,11 @@ const Hero = () => {
         >
           <Container>
             <Typography
-              variant="h4"
+              variant="h6"
               sx={{
                 textAlign: "center",
-                fontSize: {
-                  md: 35,
-                  xs: 25,
-                },
-                textShadow: "2px 2px rgba(60, 42, 33, 0.6)",
+                fontSize: { md: 30, xs: 18 },
+                textShadow: "1px 1px rgba(60, 42, 33, 0.6)",
                 marginBottom: "10px",
               }}
             >
@@ -152,14 +115,11 @@ const Hero = () => {
             </Typography>
 
             <Typography
-              variant="h5"
+              variant="h6"
               sx={{
                 textAlign: "center",
-                fontSize: {
-                  md: 30,
-                  xs: 20,
-                },
-                textShadow: "2px 2px rgba(60, 42, 33, 0.6)",
+                fontSize: { md: 25, xs: 16 },
+                textShadow: "1px 1px rgba(60, 42, 33, 0.6)",
                 marginBottom: "20px",
               }}
             >
@@ -167,17 +127,12 @@ const Hero = () => {
             </Typography>
 
             <Typography
-              variant="h2"
+              variant="h5"
               sx={{
-                textAlign: {
-                  md: "left",
-                  xs: "center",
-                },
-                fontSize: {
-                  md: 70,
-                  xs: 45,
-                },
-                textShadow: "3px 3px rgba(60, 42, 33, 0.6)",
+                textAlign: "center",
+                fontSize: { md: 40, xs: 25 },
+                textShadow: "2px 2px rgba(60, 42, 33, 0.6)",
+                marginBottom: "10px",
               }}
             >
               {undangan.split(" ").map((text, key) => (
@@ -187,47 +142,50 @@ const Hero = () => {
               ))}
             </Typography>
 
-            <Typography
-              variant="h1"
+            {/* Membuat nama pengantin dalam satu baris di HP */}
+            <Box
               sx={{
-                textAlign: {
-                  md: "left",
-                  xs: "center",
-                },
-                fontSize: {
-                  md: "10em",
-                  xs: "6em",
-                },
-                textShadow: "5px 5px rgba(60, 42, 33, 0.6)",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                flexWrap: "nowrap",
+                gap: 1,
               }}
             >
               {mempelai.split(" ").map((text, key) => (
-                <TextMask key={key} variants={textVariants}>
-                  {text}
-                </TextMask>
+                <Typography
+                  key={key}
+                  variant="h3"
+                  sx={{
+                    fontSize: { md: "6em", xs: "3em" },
+                    textShadow: "3px 3px rgba(60, 42, 33, 0.6)",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  <TextMask variants={textVariants}>{text}</TextMask>
+                </Typography>
               ))}
-            </Typography>
+            </Box>
 
             <Box
               component={motion.div}
               variants={dividerVariants}
-              sx={{ borderBottom: 3, borderColor: "divider" }}
+              sx={{
+                borderBottom: 2,
+                borderColor: "divider",
+                width: "80%",
+                margin: "10px auto",
+              }}
             />
 
             <Typography
-              variant="h3"
+              variant="h5"
               component="p"
               sx={{
                 mt: 2,
-                textAlign: {
-                  md: "left",
-                  xs: "center",
-                },
-                fontSize: {
-                  md: "3em",
-                  xs: "2em",
-                },
-                textShadow: "3px 3px rgba(60, 42, 33, 0.6)",
+                textAlign: "center",
+                fontSize: { md: "2.5em", xs: "1.5em" },
+                textShadow: "2px 2px rgba(60, 42, 33, 0.6)",
               }}
             >
               {wedding.resepsi.tanggal.split(" ").map((text, key) => (
