@@ -1,0 +1,65 @@
+{
+  "application": {
+    "name": "Ngunduh Mantu  Fikri & Bila",
+    "description": "Ngunduh Mantu  Fikri & Bila. Selasa, 16 Mei 2023",
+    "version": "1.0.0"
+  },
+  "wedding": {
+    "amplopDigital": {
+      "namaBank": "Bank BRI",
+      "namaPemilik": "Fikri Azmi Arta",
+      "nomorRekening": "1234567890",
+      "alamatPenerima": "Jl. Lorong Tamsis Pondok 13 Kampung, Sawit seberang, Langkat",
+      "whatsapp": "https://wa.me/6281234567890"
+    },
+    "resepsi": {
+      "tanggal": "Selasa, 5 Mei 2025",
+      "jam": "09.00 WIB - Selesai",
+      "lokasi": "Kediaman mempelai Pria",
+      "alamat": "Jl. Lorong Tamsis Pondok 13 Kampung, Sawit seberang, Langkat",
+      "gmaps": {
+        "link": "https://maps.app.goo.gl/Zj2tJc5DoKZyvmc86",
+        "iframeSrc": "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3981.092284354295!2d98.27359717497416!3d3.790083296183782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zM8KwNDcnMjQuMyJOIDk4wrAxNiczNC4yIkU!5e0!3m2!1sen!2sid!4v1743177471149!5m2!1sen!2sid"
+      }
+    },
+    "mempelai": {
+      "pria": {
+        "namaDepan": "Fikri",
+        "namaBelakang": "Azmi Arta. S.T",
+        "namaPanggilan": "Arta",
+        "orangTua": {
+          "keterangan": "Putra pertama dari keluarga",
+          "pria": "Adirianto, S.Pd",
+          "wanita": "Ir. Tanti Supeni"
+        },
+        "foto": "/assets/images/mempelai/fikri1.jpg",
+        "bg": "rgb(229, 229, 203)"
+      },
+      "wanita": {
+        "namaDepan": "Ariska",
+        "namaBelakang": " Nabilah, S.E",
+        "namaPanggilan": "Bila",
+        "orangTua": {
+          "keterangan": "Putri pertama dari keluarga",
+          "pria": "Supriyanto",
+          "wanita": "Zuraidah"
+        },
+        "foto": "/assets/images/mempelai/bila.jpg",
+        "bg": "rgb(213, 206, 163)"
+      }
+    }
+  },
+  "hero": {
+    "banner": "/assets/images/hero/banner2.jpg"
+  },
+  "galeri": [
+    "/assets/images/galeri/tes2.webp",
+    "/assets/images/galeri/tes3.webp",
+    "/assets/images/galeri/tes4.webp",
+    "/assets/images/galeri/tes5.webp",
+    "/assets/images/galeri/tes6.webp",
+    "/assets/images/galeri/bila_fikri.jpg",
+    "/assets/images/galeri/fikri.png",
+    "/assets/images/galeri/tes7.jpg"
+  ]
+}
